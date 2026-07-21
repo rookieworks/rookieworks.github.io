@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rookieworks.github.io/sitemap.xml
