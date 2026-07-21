@@ -1,0 +1,11 @@
+# app-ads.txt — Rookie Works
+# Autoriza a Google AdMob a monetizar el inventario de anuncios de nuestras apps.
+# Spec IAB: https://iabtechlab.com/ads-txt/
+#
+# ACCIÓN REQUERIDA: reemplaza pub-XXXXXXXXXXXXXXXX por tu Publisher ID de AdMob.
+#   Dónde encontrarlo: AdMob (apps.admob.com) → Configuración (engranaje) →
+#   Información de la cuenta → "ID de editor" / "Publisher ID".
+#   Tiene el formato pub-0000000000000000 (16 dígitos).
+# El valor f08c47fec0942fa0 es el ID de certificación de Google (constante, no lo cambies).
+
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
