@@ -1,0 +1,10 @@
+# Reference / working files — not part of the published site
+opcion 1.png
+opcion 2.png
+opcion 3.png
+prompt-sitio-rookieworks.md
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini

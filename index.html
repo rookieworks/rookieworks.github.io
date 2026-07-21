@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rookie Works — Estudio de software independiente</title>
+<meta name="description" content="Rookie Works es un estudio de software independiente. Juegos, utilidades y herramientas — una cosa, bien hecha. Desde Venezuela.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F3EE; --bg-soft:#EEEBE3; --ink:#151310; --ink-soft:#6B655B;
+    --line:#DCD8CE; --accent:#CF6F22; --accent-ink:#F5F3EE;
+    --serif:"Fraunces",Georgia,"Times New Roman",serif;
+    --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+    --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --pad:clamp(20px,5vw,72px); --maxw:1120px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#0E0E0C; --bg-soft:#161513; --ink:#EDE9E1; --ink-soft:#9A948A; --line:#2A2823; --accent:#E8833A; --accent-ink:#0E0E0C; }
+  }
+  :root[data-theme="light"]{ --bg:#F5F3EE; --bg-soft:#EEEBE3; --ink:#151310; --ink-soft:#6B655B; --line:#DCD8CE; --accent:#CF6F22; --accent-ink:#F5F3EE; }
+  :root[data-theme="dark"]{ --bg:#0E0E0C; --bg-soft:#161513; --ink:#EDE9E1; --ink-soft:#9A948A; --line:#2A2823; --accent:#E8833A; --accent-ink:#0E0E0C; }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;transition:background .4s ease,color .4s ease}
+  a{color:inherit}
+  ::selection{background:var(--accent);color:var(--accent-ink)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+  .skip{position:absolute;left:-999px;top:0;background:var(--accent);color:var(--accent-ink);padding:10px 16px;z-index:50;font-family:var(--mono);font-size:13px}
+  .skip:focus{left:8px;top:8px}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.03em;color:var(--ink-soft);margin:0 0 22px}
+  .eyebrow b{color:var(--accent);font-weight:400}
+  section{padding:clamp(64px,10vh,120px) 0;border-top:1px solid var(--line)}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,4.4vw,44px);line-height:1.06;letter-spacing:-.02em;margin:0 0 40px;text-wrap:balance}
+
+  /* header */
+  header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+  .mark{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:-.01em;text-decoration:none;display:inline-flex;align-items:center}
+  .mark .dot{width:9px;height:9px;background:var(--accent);border-radius:2px;margin-left:7px}
+  .navlinks{display:flex;align-items:center;gap:24px;font-family:var(--mono);font-size:13px;color:var(--ink-soft)}
+  .navlinks a{text-decoration:none}
+  .navlinks a:hover{color:var(--accent)}
+  .tools{display:flex;align-items:center;gap:6px}
+  .iconbtn{font-family:var(--mono);font-size:12px;background:transparent;color:var(--ink);border:1px solid var(--line);
+    border-radius:6px;padding:7px 9px;cursor:pointer;line-height:1;display:inline-flex;align-items:center;gap:6px;transition:border-color .2s}
+  .iconbtn:hover{border-color:var(--accent)}
+  .iconbtn svg{width:15px;height:15px;display:block}
+
+  /* hero */
+  .hero{padding-top:clamp(56px,11vh,120px);border-top:none}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(46px,9vw,104px);line-height:.98;letter-spacing:-.03em;margin:0;text-wrap:balance}
+  .hero h1 em{font-style:italic;color:var(--accent);display:block}
+  .hero .sub{font-size:clamp(17px,2.2vw,21px);color:var(--ink-soft);max-width:44ch;margin:30px 0 0;line-height:1.5}
+  .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;margin-top:42px}
+  .btn{font-family:var(--mono);font-size:14.5px;background:var(--accent);color:var(--accent-ink);border:none;
+    padding:15px 24px;border-radius:7px;cursor:pointer;text-decoration:none;display:inline-block;transition:transform .15s ease,filter .15s ease}
+  .btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
+  .meta{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);letter-spacing:.02em}
+  .meta i{font-style:normal;color:var(--accent)}
+
+  /* about */
+  .about-body{font-family:var(--serif);font-size:clamp(20px,2.7vw,27px);line-height:1.45;max-width:24ch;font-weight:400}
+  .about-grid{display:grid;grid-template-columns:1fr;gap:8px}
+  @media(min-width:820px){.about-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:56px;align-items:start}
+    .about-body{max-width:34ch}}
+  .about-lead{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);line-height:1.3;margin:0}
+
+  /* projects */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+  .card{background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:28px 26px;display:flex;flex-direction:column;min-height:260px;transition:border-color .25s ease,transform .25s ease}
+  .card:hover{border-color:var(--accent);transform:translateY(-3px)}
+  .chip{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 20px}
+  .card h3{font-family:var(--serif);font-weight:600;font-size:27px;letter-spacing:-.01em;margin:0 0 12px}
+  .card p{margin:0;color:var(--ink-soft);font-size:15.5px;line-height:1.55}
+  .card .status{margin-top:auto;padding-top:22px;display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12.5px;color:var(--accent)}
+  .status .led{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+  .card.ghost{background:transparent;border-style:dashed;justify-content:center;align-items:flex-start;color:var(--ink-soft)}
+  .card.ghost .plus{font-family:var(--serif);font-size:34px;color:var(--ink-soft);margin-bottom:10px;line-height:1}
+  .card.ghost code{font-family:var(--mono);font-size:12px;color:var(--ink-soft);margin-top:8px}
+
+  /* how we work */
+  .work{display:grid;grid-template-columns:1fr;gap:2px;counter-reset:w}
+  @media(min-width:760px){.work{grid-template-columns:repeat(3,1fr);gap:0}}
+  .wcell{padding:28px 0;border-top:1px solid var(--line)}
+  @media(min-width:760px){.wcell{padding:8px 28px 0;border-top:none;border-left:1px solid var(--line)}.wcell:first-child{padding-left:0;border-left:none}}
+  .wcell .n{font-family:var(--mono);font-size:12px;color:var(--accent);margin:0 0 14px}
+  .wcell h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:0 0 10px}
+  .wcell p{margin:0;color:var(--ink-soft);font-size:15.5px;line-height:1.55}
+
+  /* contact */
+  .contact-lead{font-family:var(--serif);font-size:clamp(22px,3vw,30px);line-height:1.35;margin:0 0 28px;max-width:22ch}
+  .email{font-family:var(--mono);font-size:clamp(18px,3vw,26px);color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
+  .email:hover{border-color:var(--accent)}
+  .socials{display:flex;flex-wrap:wrap;gap:22px;margin-top:34px;font-family:var(--mono);font-size:13.5px}
+  .socials a{color:var(--ink-soft);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+  .socials a:hover{color:var(--accent)}
+  .socials svg{width:16px;height:16px}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:38px 0 54px}
+  .foot{display:flex;flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:12.5px;color:var(--ink-soft)}
+  .foot a{color:var(--ink-soft);text-decoration:none}
+  .foot a:hover{color:var(--accent)}
+  .foot .made i{font-style:normal;color:var(--accent)}
+
+  /* reveal animation */
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .rv{opacity:1;transform:none;transition:none}
+    .btn,.card{transition:none}
+  }
+  @media(max-width:680px){.navlinks .nlink{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="#top">Rookie Works<span class="dot" aria-hidden="true"></span></a>
+    <div class="navlinks">
+      <a class="nlink" href="#proyectos" data-i18n="nav_projects">proyectos</a>
+      <a class="nlink" href="#estudio" data-i18n="nav_studio">estudio</a>
+      <a class="nlink" href="#contacto" data-i18n="nav_contact">contacto</a>
+      <div class="tools">
+        <button class="iconbtn" id="lang" aria-label="Switch to English">EN</button>
+        <button class="iconbtn" id="theme" aria-label="Cambiar tema"></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<section class="hero wrap" aria-labelledby="h1">
+  <p class="eyebrow">&gt; <b>rookie works</b> — <span data-i18n="hero_eyebrow">estudio de software independiente</span></p>
+  <h1 id="h1"><span data-i18n="hero_h1a">Una cosa,</span><em data-i18n="hero_h1b">bien hecha.</em></h1>
+  <p class="sub" data-i18n="hero_sub">Un estudio de software independiente. Juegos, utilidades y herramientas — una a la vez, y bien. Desde Venezuela.</p>
+  <div class="cta-row">
+    <a class="btn" href="#proyectos" data-i18n="hero_cta">Ver lo que construimos →</a>
+    <span class="meta">01 <span data-i18n="meta_proj">proyecto</span> · <i data-i18n="meta_state">en desarrollo</i> · est. 2026</span>
+  </div>
+</section>
+
+<section id="estudio" class="wrap">
+  <div class="about-grid">
+    <div>
+      <p class="eyebrow">// <span data-i18n="about_eyebrow">quiénes somos</span></p>
+      <h2 style="margin-bottom:0" data-i18n="about_title">El estudio</h2>
+    </div>
+    <div>
+      <p class="about-lead" data-i18n="about_body">Somos un estudio pequeño, y nos gusta así. Preferimos publicar algo modesto y mejorarlo antes que esperar a que sea perfecto. Construimos apps de categorías distintas —un juego hoy, una utilidad mañana— y el hilo que las une es hacer una sola cosa bien. Empezamos ahora, publicamos seguido, y cada versión nos enseña algo. Desde Venezuela, para donde sea.</p>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos" class="wrap">
+  <p class="eyebrow">// <span data-i18n="proj_eyebrow">lo que construimos</span></p>
+  <h2 data-i18n="proj_title">Proyectos</h2>
+  <div class="cards">
+    <!-- Para agregar un proyecto: duplica este bloque .card y edita chip / h3 / p / status -->
+    <article class="card">
+      <p class="chip" data-i18n="p1_cat">Juego · Puzzle</p>
+      <h3>Sudoku Bloom</h3>
+      <p data-i18n="p1_desc">Un Sudoku moderno con un modo simplificado para quienes empiezan. Limpio, rápido, sin ruido.</p>
+      <span class="status"><span class="led" aria-hidden="true"></span><span data-i18n="p1_status">En desarrollo · Próximamente</span></span>
+    </article>
+    <article class="card ghost" aria-hidden="true">
+      <span class="plus">+</span>
+      <p data-i18n="p_soon">Más proyectos en camino.</p>
+      <code>// project_02</code>
+    </article>
+  </div>
+</section>
+
+<section id="trabajo" class="wrap">
+  <p class="eyebrow">// <span data-i18n="work_eyebrow">cómo trabajamos</span></p>
+  <h2 data-i18n="work_title">Cómo trabajamos</h2>
+  <div class="work">
+    <div class="wcell">
+      <p class="n">01</p>
+      <h3 data-i18n="w1t">Ciclos cortos</h3>
+      <p data-i18n="w1d">Publicamos versiones pequeñas y seguidas, no grandes lanzamientos.</p>
+    </div>
+    <div class="wcell">
+      <p class="n">02</p>
+      <h3 data-i18n="w2t">Sin sobrecompromisos</h3>
+      <p data-i18n="w2d">Prometemos poco y cumplimos. Nada de roadmaps de fantasía.</p>
+    </div>
+    <div class="wcell">
+      <p class="n">03</p>
+      <h3 data-i18n="w3t">Feedback real</h3>
+      <p data-i18n="w3d">Escuchamos a quien usa la app y ajustamos con datos, no con suposiciones.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="wrap">
+  <p class="eyebrow">// <span data-i18n="contact_eyebrow">hablemos</span></p>
+  <h2 data-i18n="contact_title">Contacto</h2>
+  <p class="contact-lead" data-i18n="contact_body">¿Una idea, un bug, o solo saludar? Escríbenos.</p>
+  <!-- REEMPLAZA el email aquí (aparece 2 veces: en href y en el texto) por tu Gmail real -->
+  <a class="email" href="mailto:contacto@rookieworks.com">contacto@rookieworks.com</a>
+  <div class="socials">
+    <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7 8 8.2 12h-6.4l-5-6.6L5.9 22H2.8l7.5-8.6L2.4 2h6.6l4.5 6zM17.8 20l-9.7-13H6.2l9.8 13z"/></svg>@rookieworks</a>
+    <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 002 12c0 4.4 2.9 8.2 6.8 9.5.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.2-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 015 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.8-2.3 4.7-4.6 4.9.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0022 12 10 10 0 0012 2z"/></svg>@rookieworks</a>
+    <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 002.5 6a2.5 2.5 0 005 0 2.5 2.5 0 00-2.52-2.5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4 0 4.75 2.65 4.75 6.1V21H19v-5.5c0-1.3 0-3-1.85-3S15 14 15 15.4V21h-4z"/></svg>Rookie Works</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year">2026</span> Rookie Works</span>
+    <a href="privacy.html" id="privacy" data-i18n="foot_privacy">Política de privacidad</a>
+    <span class="made"><i>◆</i> <span data-i18n="foot_made">Hecho en Venezuela</span></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var moon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>';
+  var sun='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>';
+
+  function currentTheme(){
+    var t=root.getAttribute('data-theme');
+    if(t) return t;
+    return window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  }
+  function paintThemeBtn(){
+    document.getElementById('theme').innerHTML = currentTheme()==='dark'? sun : moon;
+  }
+  var savedTheme=localStorage.getItem('rw-theme');
+  if(savedTheme) root.setAttribute('data-theme',savedTheme);
+  paintThemeBtn();
+  document.getElementById('theme').addEventListener('click',function(){
+    var next=currentTheme()==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    localStorage.setItem('rw-theme',next);
+    paintThemeBtn();
+  });
+
+  var dict={en:{
+    skip:"Skip to content", nav_projects:"projects", nav_studio:"studio", nav_contact:"contact",
+    hero_eyebrow:"independent software studio", hero_h1a:"One thing,", hero_h1b:"done well.",
+    hero_sub:"An independent software studio. Games, utilities and tools — one at a time, done right. From Venezuela.",
+    hero_cta:"See what we build →", meta_proj:"project", meta_state:"in progress",
+    about_eyebrow:"who we are", about_title:"The studio",
+    about_body:"We're a small studio, and we like it that way. We'd rather ship something modest and improve it than wait for perfect. We build apps across categories —a game today, a utility tomorrow— and the thread tying them together is doing one thing well. We're starting now, we ship often, and every release teaches us something. From Venezuela, for anywhere.",
+    proj_eyebrow:"what we build", proj_title:"Projects",
+    p1_cat:"Game · Puzzle", p1_desc:"A modern Sudoku with a simplified mode for beginners. Clean, fast, no clutter.", p1_status:"In development · Coming soon",
+    p_soon:"More projects on the way.",
+    work_eyebrow:"how we work", work_title:"How we work",
+    w1t:"Short cycles", w1d:"We ship small, frequent releases instead of big launches.",
+    w2t:"No overpromising", w2d:"We promise little and deliver. No fantasy roadmaps.",
+    w3t:"Real feedback", w3d:"We listen to real users and adjust with data, not guesses.",
+    contact_eyebrow:"say hello", contact_title:"Contact", contact_body:"An idea, a bug, or just to say hi? Drop us a line.",
+    foot_privacy:"Privacy policy", foot_made:"Made in Venezuela"
+  }};
+  var esCache={};
+  function setLang(lang){
+    var nodes=document.querySelectorAll('[data-i18n]');
+    nodes.forEach(function(el){
+      var k=el.getAttribute('data-i18n');
+      if(lang==='es'){ if(esCache[k]!==undefined) el.textContent=esCache[k]; }
+      else { if(esCache[k]===undefined) esCache[k]=el.textContent; if(dict.en[k]!==undefined) el.textContent=dict.en[k]; }
+    });
+    root.setAttribute('lang',lang);
+    document.getElementById('privacy').setAttribute('href', lang==='es'?'privacy.html':'privacy-en.html');
+    var lb=document.getElementById('lang');
+    lb.textContent = lang==='es'?'EN':'ES';
+    lb.setAttribute('aria-label', lang==='es'?'Switch to English':'Cambiar a español');
+    localStorage.setItem('rw-lang',lang);
+  }
+  document.getElementById('lang').addEventListener('click',function(){
+    setLang(root.getAttribute('lang')==='es'?'en':'es');
+  });
+  if(localStorage.getItem('rw-lang')==='en') setLang('en');
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+
+  var io;
+  if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.12});
+    document.querySelectorAll('section > .eyebrow, section h1, section h2, .card, .wcell, .about-lead, .sub, .cta-row, .contact-lead, .email, .socials').forEach(function(el,i){
+      el.classList.add('rv'); el.style.transitionDelay=(i%4*40)+'ms'; io.observe(el);
+    });
+  }
+})();
+</script>
+</body>
+</html>
