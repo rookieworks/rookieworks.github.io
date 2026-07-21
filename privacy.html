@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad — Rookie Works</title>
+<meta name="description" content="Política de privacidad de Rookie Works y sus aplicaciones, incluyendo el uso de AdMob y Firebase Analytics, y tus derechos bajo GDPR y CCPA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F3EE; --bg-soft:#EEEBE3; --ink:#151310; --ink-soft:#6B655B;
+    --line:#DCD8CE; --accent:#CF6F22; --accent-ink:#F5F3EE;
+    --serif:"Fraunces",Georgia,serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --pad:clamp(20px,5vw,48px);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#0E0E0C; --bg-soft:#161513; --ink:#EDE9E1; --ink-soft:#9A948A; --line:#2A2823; --accent:#E8833A; --accent-ink:#0E0E0C; }
+  }
+  :root[data-theme="light"]{ --bg:#F5F3EE; --bg-soft:#EEEBE3; --ink:#151310; --ink-soft:#6B655B; --line:#DCD8CE; --accent:#CF6F22; --accent-ink:#F5F3EE; }
+  :root[data-theme="dark"]{ --bg:#0E0E0C; --bg-soft:#161513; --ink:#EDE9E1; --ink-soft:#9A948A; --line:#2A2823; --accent:#E8833A; --accent-ink:#0E0E0C; }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.7;
+    -webkit-font-smoothing:antialiased}
+  ::selection{background:var(--accent);color:var(--accent-ink)}
+  a{color:var(--accent)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:760px;margin:0 auto;padding:0 var(--pad)}
+
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;
+    background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px)}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
+  .mark{font-family:var(--serif);font-size:20px;font-weight:600;text-decoration:none;color:var(--ink);display:inline-flex;align-items:center}
+  .mark .dot{width:8px;height:8px;background:var(--accent);border-radius:2px;margin-left:6px}
+  .tools{display:flex;gap:6px}
+  .iconbtn{font-family:var(--mono);font-size:12px;background:transparent;color:var(--ink);border:1px solid var(--line);
+    border-radius:6px;padding:7px 9px;cursor:pointer;line-height:1;text-decoration:none;display:inline-flex;align-items:center}
+  .iconbtn:hover{border-color:var(--accent)}
+  .iconbtn svg{width:15px;height:15px;display:block}
+
+  .doc{padding:clamp(40px,7vh,72px) 0 80px}
+  .kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.03em;color:var(--accent);margin:0 0 16px}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 14px;text-wrap:balance}
+  .updated{font-family:var(--mono);font-size:13px;color:var(--ink-soft);margin:0 0 8px}
+  .lead{font-size:18px;color:var(--ink-soft);margin:22px 0 0}
+
+  .toc{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:22px 26px;margin:44px 0}
+  .toc h2{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin:0 0 14px;font-weight:500}
+  .toc ol{margin:0;padding:0;list-style:none;counter-reset:t;
+    columns:2;column-gap:34px}
+  .toc li{counter-increment:t;margin:0 0 9px;break-inside:avoid;font-size:15px}
+  .toc li::before{content:counter(t,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--accent);margin-right:10px}
+  .toc a{color:var(--ink);text-decoration:none}
+  .toc a:hover{color:var(--accent)}
+  @media(max-width:560px){.toc ol{columns:1}}
+
+  section.s{padding-top:14px;margin-top:34px;border-top:1px solid var(--line)}
+  h2.sec{font-family:var(--serif);font-weight:600;font-size:clamp(22px,3.4vw,29px);letter-spacing:-.01em;margin:0 0 16px;scroll-margin-top:80px;display:flex;gap:14px;align-items:baseline}
+  h2.sec .num{font-family:var(--mono);font-size:14px;color:var(--accent);font-weight:400}
+  h3{font-family:var(--sans);font-weight:500;font-size:18px;margin:26px 0 8px}
+  p{margin:0 0 16px}
+  ul{margin:0 0 16px;padding-left:22px}
+  li{margin:0 0 9px}
+  strong{font-weight:500;color:var(--ink)}
+  .note{background:var(--bg-soft);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 18px;margin:20px 0;font-size:15.5px;color:var(--ink-soft)}
+  .contact-box{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:22px 26px;margin-top:8px}
+  .contact-box a{font-family:var(--mono)}
+
+  footer{border-top:1px solid var(--line);padding:30px 0 50px}
+  .foot{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;font-family:var(--mono);font-size:12.5px;color:var(--ink-soft)}
+  .foot a{color:var(--ink-soft);text-decoration:none}
+  .foot a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="index.html">Rookie Works<span class="dot" aria-hidden="true"></span></a>
+    <div class="tools">
+      <a class="iconbtn" href="privacy-en.html" aria-label="Read in English">EN</a>
+      <button class="iconbtn" id="theme" aria-label="Cambiar tema"></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap doc">
+  <p class="kicker">// documento legal</p>
+  <h1>Política de privacidad</h1>
+  <p class="updated">Última actualización: 20 de julio de 2026 · Versión 1.0</p>
+  <p class="lead">Esta política explica qué datos recopilan Rookie Works y sus aplicaciones, para qué los usamos, con quién los compartimos y qué control tienes sobre ellos.</p>
+
+  <nav class="toc" aria-label="Índice">
+    <h2>Contenido</h2>
+    <ol>
+      <li><a href="#quienes">Quiénes somos</a></li>
+      <li><a href="#alcance">Alcance</a></li>
+      <li><a href="#recopilamos">Qué datos recopilamos</a></li>
+      <li><a href="#uso">Cómo usamos los datos</a></li>
+      <li><a href="#publicidad">Publicidad (AdMob)</a></li>
+      <li><a href="#analitica">Analítica (Firebase)</a></li>
+      <li><a href="#ninos">Niños y familias</a></li>
+      <li><a href="#terceros">Terceros y compartición</a></li>
+      <li><a href="#retencion">Retención</a></li>
+      <li><a href="#seguridad">Seguridad</a></li>
+      <li><a href="#derechos">Tus derechos</a></li>
+      <li><a href="#transferencias">Transferencias internacionales</a></li>
+      <li><a href="#cambios">Cambios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ol>
+  </nav>
+
+  <section class="s" id="quienes">
+    <h2 class="sec"><span class="num">01</span> Quiénes somos</h2>
+    <p>Rookie Works ("nosotros", "el estudio") es un estudio de software independiente con sede en Venezuela que desarrolla y publica aplicaciones móviles. Somos el responsable del tratamiento de los datos descritos en esta política.</p>
+    <p>Para cualquier asunto relacionado con privacidad, puedes escribirnos a <a href="mailto:contacto@rookieworks.com">contacto@rookieworks.com</a>.</p>
+  </section>
+
+  <section class="s" id="alcance">
+    <h2 class="sec"><span class="num">02</span> Alcance</h2>
+    <p>Esta política aplica a todas las aplicaciones publicadas por Rookie Works en Google Play y otras tiendas, incluida <strong>Sudoku Bloom</strong> (identificador de paquete <code>com.rookieworks.sudokubloom</code>), así como a este sitio web. Cuando una app tenga prácticas de datos particulares, lo indicaremos en su ficha de la tienda.</p>
+  </section>
+
+  <section class="s" id="recopilamos">
+    <h2 class="sec"><span class="num">03</span> Qué datos recopilamos</h2>
+    <p>Diseñamos nuestras apps para recopilar lo mínimo necesario. No te pedimos crear una cuenta ni ingresar datos personales para usarlas.</p>
+    <h3>Datos que recopilan nuestros proveedores automáticamente</h3>
+    <p>A través de los servicios de terceros que integramos (Google AdMob y Google Firebase), se pueden recopilar de forma automática:</p>
+    <ul>
+      <li><strong>Identificadores de publicidad y de dispositivo</strong>, como el ID de publicidad de Android (Advertising ID) y un identificador seudónimo de instancia de la app.</li>
+      <li><strong>Ubicación aproximada</strong>, derivada de la dirección IP (a nivel de país o región, no ubicación precisa por GPS).</li>
+      <li><strong>Información del dispositivo</strong>: modelo, sistema operativo y versión, idioma, operadora, tipo de conexión.</li>
+      <li><strong>Datos de uso e interacción</strong>: eventos dentro de la app, fallos (crashes), rendimiento e interacción con los anuncios.</li>
+    </ul>
+    <h3>Datos que tú nos das voluntariamente</h3>
+    <p>Solo los que decidas enviarnos, por ejemplo si nos escribes por correo. En ese caso conservamos tu dirección de correo y el contenido del mensaje para responderte.</p>
+  </section>
+
+  <section class="s" id="uso">
+    <h2 class="sec"><span class="num">04</span> Cómo usamos los datos</h2>
+    <p>Usamos la información para:</p>
+    <ul>
+      <li>Mostrar publicidad que hace posible ofrecer las apps de forma gratuita.</li>
+      <li>Entender cómo se usan las apps y mejorar su funcionamiento y estabilidad.</li>
+      <li>Detectar, prevenir y solucionar problemas técnicos y fraudes.</li>
+      <li>Responder a tus consultas y cumplir obligaciones legales.</li>
+    </ul>
+    <p>No vendemos tus datos personales a cambio de dinero.</p>
+  </section>
+
+  <section class="s" id="publicidad">
+    <h2 class="sec"><span class="num">05</span> Publicidad (Google AdMob)</h2>
+    <p>Nuestras apps pueden mostrar anuncios a través de <strong>Google AdMob</strong>. Para ello, Google y sus socios publicitarios pueden recopilar y procesar identificadores de publicidad, ubicación aproximada, información del dispositivo y datos de interacción con los anuncios, con el fin de mostrar y medir publicidad.</p>
+    <p>Según tu región y tus preferencias, los anuncios pueden ser <strong>personalizados</strong> (basados en tu actividad) o <strong>no personalizados</strong>. En regiones que lo exigen (como el Espacio Económico Europeo, el Reino Unido y Suiza) te mostraremos un mensaje de consentimiento para elegir antes de cargar anuncios personalizados.</p>
+    <p>El tratamiento de datos por parte de Google se rige por su propia política. Puedes conocer cómo Google usa la información de las apps que la utilizan aquí:</p>
+    <ul>
+      <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de privacidad de Google</a></li>
+      <li><a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Cómo Google usa la información de sitios y apps de sus socios</a></li>
+    </ul>
+    <p>Puedes restablecer o limitar tu ID de publicidad, o desactivar los anuncios personalizados, desde <strong>Ajustes › Google › Anuncios</strong> en tu dispositivo Android.</p>
+  </section>
+
+  <section class="s" id="analitica">
+    <h2 class="sec"><span class="num">06</span> Analítica (Google Firebase)</h2>
+    <p>Usamos <strong>Google Firebase Analytics</strong> y Firebase Crashlytics para entender de forma agregada cómo se usan nuestras apps y para detectar errores. Estos servicios recopilan eventos de uso, información del dispositivo, ubicación aproximada e identificadores seudónimos (como el ID de instancia de la app).</p>
+    <p>Estos datos nos ayudan a decidir qué mejorar. No los usamos para identificarte personalmente. El tratamiento por parte de Google se rige por la <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">información de privacidad y seguridad de Firebase</a>.</p>
+  </section>
+
+  <section class="s" id="ninos">
+    <h2 class="sec"><span class="num">07</span> Niños y familias</h2>
+    <p>Algunas de nuestras apps pueden ser aptas para una audiencia mixta que incluye a menores. Cumplimos con la <a href="https://play.google.com/about/families/" target="_blank" rel="noopener">Política para Familias de Google Play</a> y con leyes aplicables como COPPA.</p>
+    <p>No recopilamos intencionalmente datos personales de menores de 13 años (o la edad mínima que aplique en tu país). Cuando una app está dirigida a niños o a una audiencia mixta, configuramos los SDK de publicidad y analítica para tratar al usuario de forma acorde —por ejemplo, solicitando únicamente <strong>anuncios no personalizados</strong> y limitando la recopilación de datos.</p>
+    <div class="note">Si eres madre, padre o tutor y crees que un menor nos ha proporcionado datos personales, escríbenos a <a href="mailto:contacto@rookieworks.com">contacto@rookieworks.com</a> y los eliminaremos.</div>
+  </section>
+
+  <section class="s" id="terceros">
+    <h2 class="sec"><span class="num">08</span> Terceros y compartición</h2>
+    <p>No vendemos tus datos personales. Compartimos información con proveedores que nos prestan servicios y que actúan según sus propias políticas de privacidad:</p>
+    <ul>
+      <li><strong>Google AdMob</strong> — publicidad.</li>
+      <li><strong>Google Firebase</strong> — analítica e informes de fallos.</li>
+      <li><strong>Google Play</strong> — distribución y estadísticas de la tienda.</li>
+    </ul>
+    <p>También podríamos divulgar información si la ley lo exige o para proteger derechos, seguridad y prevenir fraudes.</p>
+  </section>
+
+  <section class="s" id="retencion">
+    <h2 class="sec"><span class="num">09</span> Retención</h2>
+    <p>Conservamos los datos solo el tiempo necesario para los fines descritos. Los datos de analítica se retienen según la configuración de Firebase; los identificadores de publicidad son gestionados por Google conforme a sus plazos. Los correos que nos envías se conservan mientras sean necesarios para atender tu solicitud.</p>
+  </section>
+
+  <section class="s" id="seguridad">
+    <h2 class="sec"><span class="num">10</span> Seguridad</h2>
+    <p>Aplicamos medidas razonables para proteger la información y trabajamos con proveedores que también las aplican. Ningún método de transmisión o almacenamiento es 100% seguro, pero nos esforzamos por proteger tus datos.</p>
+  </section>
+
+  <section class="s" id="derechos">
+    <h2 class="sec"><span class="num">11</span> Tus derechos</h2>
+    <p>Según dónde vivas, tienes distintos derechos sobre tus datos. Los respetamos para cualquier usuario que nos contacte.</p>
+    <h3>Derechos ARCO y generales</h3>
+    <p>Puedes solicitar el <strong>Acceso</strong>, la <strong>Rectificación</strong>, la <strong>Cancelación</strong> (eliminación) y la <strong>Oposición</strong> al tratamiento de tus datos.</p>
+    <h3>Espacio Económico Europeo y Reino Unido (RGPD/GDPR)</h3>
+    <p>Tienes derecho a acceder, rectificar, suprimir, limitar u oponerte al tratamiento, a la portabilidad de tus datos y a retirar tu consentimiento en cualquier momento. Las bases legales que usamos son tu <strong>consentimiento</strong> (para anuncios personalizados y analítica) y nuestro <strong>interés legítimo</strong> (para seguridad y mejora del producto). También puedes presentar una reclamación ante tu autoridad de protección de datos.</p>
+    <h3>California (CCPA/CPRA)</h3>
+    <p>Los residentes de California pueden conocer qué información se recopila, solicitar su eliminación y optar por no participar en la "venta" o "compartición" de información personal. No vendemos información personal por dinero; el uso de identificadores para publicidad personalizada puede considerarse "compartición", y puedes desactivarlo usando anuncios no personalizados según se describe arriba.</p>
+    <p>Para ejercer cualquier derecho, escríbenos a <a href="mailto:contacto@rookieworks.com">contacto@rookieworks.com</a>. Responderemos en los plazos que exija la ley aplicable.</p>
+  </section>
+
+  <section class="s" id="transferencias">
+    <h2 class="sec"><span class="num">12</span> Transferencias internacionales</h2>
+    <p>Nuestros proveedores (principalmente Google) pueden procesar datos en servidores ubicados en Estados Unidos u otros países. Estas transferencias se realizan con las salvaguardas que exige la ley aplicable, como las cláusulas contractuales estándar.</p>
+  </section>
+
+  <section class="s" id="cambios">
+    <h2 class="sec"><span class="num">13</span> Cambios a esta política</h2>
+    <p>Podemos actualizar esta política para reflejar cambios en nuestras prácticas o en la ley. Publicaremos la versión revisada en esta misma dirección y actualizaremos la fecha de "Última actualización". Los cambios significativos se destacarán cuando corresponda.</p>
+  </section>
+
+  <section class="s" id="contacto">
+    <h2 class="sec"><span class="num">14</span> Contacto</h2>
+    <p>Para dudas, solicitudes o para ejercer tus derechos:</p>
+    <div class="contact-box">
+      <p style="margin:0 0 6px"><strong>Rookie Works</strong> — Venezuela</p>
+      <p style="margin:0"><a href="mailto:contacto@rookieworks.com">contacto@rookieworks.com</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year">2026</span> Rookie Works</span>
+    <a href="index.html">← Volver al inicio</a>
+    <a href="privacy-en.html">Read in English →</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var moon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>';
+  var sun='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>';
+  function ct(){var t=root.getAttribute('data-theme');return t?t:(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}
+  function paint(){document.getElementById('theme').innerHTML=ct()==='dark'?sun:moon;}
+  var s=localStorage.getItem('rw-theme'); if(s) root.setAttribute('data-theme',s); paint();
+  document.getElementById('theme').addEventListener('click',function(){var n=ct()==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('rw-theme',n);paint();});
+  document.getElementById('year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
