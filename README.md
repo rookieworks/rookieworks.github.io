@@ -30,7 +30,7 @@ Sitio web público de **Rookie Works**, estudio de software independiente. Está
 
 ## Pendientes por rellenar (placeholders)
 
-- **Email de contacto:** buscar `contacto@rookieworks.com` en `index.html`, `privacy.html` y `privacy-en.html` y reemplazarlo por el correo real.
+- **Email de contacto:** buscar `rookieworksdev@gmail.com` en `index.html`, `privacy.html` y `privacy-en.html` y reemplazarlo por el correo real.
 - **Publisher ID de AdMob:** en `app-ads.txt`, cambiar `pub-XXXXXXXXXXXXXXXX` (se saca de AdMob → Configuración → Información de la cuenta).
 - **Package name:** las políticas usan `com.rookieworks.sudokubloom` como placeholder.
 - **Redes sociales:** los enlaces de X/GitHub/LinkedIn en `index.html` apuntan a `#`.
