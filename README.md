@@ -32,7 +32,7 @@ Sitio web público de **Rookie Works**, estudio de software independiente. Está
 
 - **Email de contacto:** buscar `rookieworksdev@gmail.com` en `index.html`, `privacy.html` y `privacy-en.html` y reemplazarlo por el correo real.
 - **Publisher ID de AdMob:** en `app-ads.txt`, cambiar `pub-XXXXXXXXXXXXXXXX` (se saca de AdMob → Configuración → Información de la cuenta).
-- **Package name:** las políticas usan `com.rookieworks.sudokufy` como placeholder (confirmar que coincida con el `applicationId` real de la app).
+- **Package name:** las políticas usan `com.rookieworks.sudokubloom` (identificador técnico de la app; no cambió con el rebranding a Sudokufy).
 - **Redes sociales:** los enlaces de X/GitHub/LinkedIn en `index.html` apuntan a `#`.
 
 ## Cómo editar y publicar
