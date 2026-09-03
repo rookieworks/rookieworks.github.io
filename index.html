@@ -105,8 +105,12 @@
   .chip{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 20px}
   .card h3{font-family:var(--serif);font-weight:600;font-size:27px;letter-spacing:-.01em;margin:0 0 12px}
   .card p{margin:0;color:var(--ink-soft);font-size:15.5px;line-height:1.55}
-  .card .status{margin-top:auto;padding-top:22px;display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12.5px;color:var(--accent)}
+  .card-foot{margin-top:auto;padding-top:22px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+  .card .status{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12.5px;color:var(--accent)}
   .status .led{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+  .playbtn{font-family:var(--mono);font-size:13px;color:var(--accent);text-decoration:none;border:1px solid var(--accent);border-radius:8px;padding:9px 15px;display:inline-flex;align-items:center;gap:8px;transition:background .18s ease,color .18s ease,transform .15s ease}
+  .playbtn:hover{background:var(--accent);color:var(--accent-ink);transform:translateY(-1px)}
+  .playbtn svg{width:15px;height:15px}
   .card.ghost{background:transparent;border-style:dashed;justify-content:center;align-items:flex-start;color:var(--ink-soft)}
   .card.ghost .plus{font-family:var(--serif);font-size:34px;color:var(--ink-soft);margin-bottom:10px;line-height:1}
   .card.ghost code{font-family:var(--mono);font-size:12px;color:var(--ink-soft);margin-top:8px}
@@ -174,7 +178,7 @@
   <p class="sub" data-i18n="hero_sub">Un estudio de software independiente. Juegos, utilidades y herramientas — una a la vez, y bien. Desde Venezuela.</p>
   <div class="cta-row">
     <a class="btn" href="#proyectos" data-i18n="hero_cta">Ver lo que construimos →</a>
-    <span class="meta">01 <span data-i18n="meta_proj">proyecto</span> · <i data-i18n="meta_state">en desarrollo</i> · est. 2026</span>
+    <span class="meta">01 <span data-i18n="meta_proj">proyecto</span> · <i data-i18n="meta_state">en Google Play</i> · est. 2026</span>
   </div>
 </section>
 
@@ -199,7 +203,10 @@
       <p class="chip" data-i18n="p1_cat">Juego · Puzzle</p>
       <h3>Sudokufy</h3>
       <p data-i18n="p1_desc">Un Sudoku moderno con modo para niños y pistas que enseñan, no que revelan la respuesta. Sin anuncios que interrumpan la partida.</p>
-      <span class="status"><span class="led" aria-hidden="true"></span><span data-i18n="p1_status">En desarrollo · Próximamente</span></span>
+      <div class="card-foot">
+        <span class="status"><span class="led" aria-hidden="true"></span><span data-i18n="p1_status">Disponible en Google Play</span></span>
+        <a class="playbtn" href="https://play.google.com/store/apps/details?id=com.rookieworks.sudokubloom" target="_blank" rel="noopener" aria-label="Ver Sudokufy en Google Play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3.5v17a1 1 0 001.5.87l14-8.5a1 1 0 000-1.74l-14-8.5A1 1 0 004 3.5z"/></svg><span data-i18n="p1_cta">Ver en Google Play</span></a>
+      </div>
     </article>
     <article class="card ghost" aria-hidden="true">
       <span class="plus">+</span>
@@ -281,11 +288,11 @@
     skip:"Skip to content", nav_projects:"projects", nav_studio:"studio", nav_contact:"contact",
     hero_eyebrow:"independent software studio", hero_h1a:"One thing,", hero_h1b:"done well.",
     hero_sub:"An independent software studio. Games, utilities and tools — one at a time, done right. From Venezuela.",
-    hero_cta:"See what we build →", meta_proj:"project", meta_state:"in progress",
+    hero_cta:"See what we build →", meta_proj:"project", meta_state:"on Google Play",
     about_eyebrow:"who we are", about_title:"The studio",
     about_body:"We're a small studio, and we like it that way. We'd rather ship something modest and improve it than wait for perfect. We build apps across categories —a game today, a utility tomorrow— and the thread tying them together is doing one thing well. We're starting now, we ship often, and every release teaches us something. From Venezuela, for anywhere.",
     proj_eyebrow:"what we build", proj_title:"Projects",
-    p1_cat:"Game · Puzzle", p1_desc:"A modern Sudoku with a kids mode and hints that teach instead of just revealing the answer. No ads interrupting your game.", p1_status:"In development · Coming soon",
+    p1_cat:"Game · Puzzle", p1_desc:"A modern Sudoku with a kids mode and hints that teach instead of just revealing the answer. No ads interrupting your game.", p1_status:"Available on Google Play", p1_cta:"See it on Google Play",
     p_soon:"More projects on the way.",
     work_eyebrow:"how we work", work_title:"How we work",
     w1t:"Short cycles", w1d:"We ship small, frequent releases instead of big launches.",
