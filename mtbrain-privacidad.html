@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad de MTBrain — Rookie Works</title>
+<meta name="description" content="Qué datos guarda MTBrain, dónde viven, qué se comparte con Strava y cómo borrar tu cuenta.">
+<link rel="canonical" href="https://rookieworks.github.io/mtbrain-privacidad.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Rookie Works">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Política de privacidad de MTBrain">
+<meta property="og:description" content="Qué datos guarda MTBrain, dónde viven, qué se comparte con Strava y cómo borrar tu cuenta.">
+<meta property="og:url" content="https://rookieworks.github.io/mtbrain-privacidad.html">
+<meta property="og:image" content="https://rookieworks.github.io/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rookieworks.github.io/og.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#F5F3EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0E0C" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F3EE; --bg-soft:#EEEBE3; --ink:#151310; --ink-soft:#6B655B;
+    --line:#DCD8CE; --accent:#CF6F22; --accent-ink:#F5F3EE;
+    --serif:"Fraunces",Georgia,serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --pad:clamp(20px,5vw,48px);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#0E0E0C; --bg-soft:#161513; --ink:#EDE9E1; --ink-soft:#9A948A; --line:#2A2823; --accent:#E8833A; --accent-ink:#0E0E0C; }
+  }
+  :root[data-theme="light"]{ --bg:#F5F3EE; --bg-soft:#EEEBE3; --ink:#151310; --ink-soft:#6B655B; --line:#DCD8CE; --accent:#CF6F22; --accent-ink:#F5F3EE; }
+  :root[data-theme="dark"]{ --bg:#0E0E0C; --bg-soft:#161513; --ink:#EDE9E1; --ink-soft:#9A948A; --line:#2A2823; --accent:#E8833A; --accent-ink:#0E0E0C; }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.7;
+    -webkit-font-smoothing:antialiased}
+  ::selection{background:var(--accent);color:var(--accent-ink)}
+  a{color:var(--accent)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:760px;margin:0 auto;padding:0 var(--pad)}
+
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;
+    background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px)}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
+  .mark{font-family:var(--serif);font-size:20px;font-weight:600;text-decoration:none;color:var(--ink);display:inline-flex;align-items:center}
+  .mark .dot{width:8px;height:8px;background:var(--accent);border-radius:2px;margin-left:6px}
+  .tools{display:flex;gap:6px}
+  .iconbtn{font-family:var(--mono);font-size:12px;background:transparent;color:var(--ink);border:1px solid var(--line);
+    border-radius:6px;padding:7px 9px;cursor:pointer;line-height:1;text-decoration:none;display:inline-flex;align-items:center}
+  .iconbtn:hover{border-color:var(--accent)}
+  .iconbtn svg{width:15px;height:15px;display:block}
+
+  .doc{padding:clamp(40px,7vh,72px) 0 80px}
+  .kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.03em;color:var(--accent);margin:0 0 16px}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 14px;text-wrap:balance}
+  .updated{font-family:var(--mono);font-size:13px;color:var(--ink-soft);margin:0 0 8px}
+  .lead{font-size:18px;color:var(--ink-soft);margin:22px 0 0}
+
+  .toc{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:22px 26px;margin:44px 0}
+  .toc h2{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin:0 0 14px;font-weight:500}
+  .toc ol{margin:0;padding:0;list-style:none;counter-reset:t;
+    columns:2;column-gap:34px}
+  .toc li{counter-increment:t;margin:0 0 9px;break-inside:avoid;font-size:15px}
+  .toc li::before{content:counter(t,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--accent);margin-right:10px}
+  .toc a{color:var(--ink);text-decoration:none}
+  .toc a:hover{color:var(--accent)}
+  @media(max-width:560px){.toc ol{columns:1}}
+
+  section.s{padding-top:14px;margin-top:34px;border-top:1px solid var(--line)}
+  h2.sec{font-family:var(--serif);font-weight:600;font-size:clamp(22px,3.4vw,29px);letter-spacing:-.01em;margin:0 0 16px;scroll-margin-top:80px;display:flex;gap:14px;align-items:baseline}
+  h2.sec .num{font-family:var(--mono);font-size:14px;color:var(--accent);font-weight:400}
+  h3{font-family:var(--sans);font-weight:500;font-size:18px;margin:26px 0 8px}
+  p{margin:0 0 16px}
+  ul{margin:0 0 16px;padding-left:22px}
+  li{margin:0 0 9px}
+  strong{font-weight:500;color:var(--ink)}
+  .note{background:var(--bg-soft);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 18px;margin:20px 0;font-size:15.5px;color:var(--ink-soft)}
+  .contact-box{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:22px 26px;margin-top:8px}
+  .contact-box a{font-family:var(--mono)}
+
+  table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:15.5px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);font-weight:500}
+  .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  footer{border-top:1px solid var(--line);padding:30px 0 50px}
+  .foot{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;font-family:var(--mono);font-size:12.5px;color:var(--ink-soft)}
+  .foot a{color:var(--ink-soft);text-decoration:none}
+  .foot a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="index.html">Rookie Works<span class="dot" aria-hidden="true"></span></a>
+    <div class="tools">
+      <button class="iconbtn" id="theme" aria-label="Cambiar tema"></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap doc">
+  <p class="kicker">// MTBrain · documento legal</p>
+  <h1>Política de privacidad de MTBrain</h1>
+  <p class="updated">Última actualización: 10 de septiembre de 2026 · Versión 1.0</p>
+  <p class="lead">MTBrain es una aplicación para ciclistas de montaña que lleva el registro de tus bicicletas, su mantenimiento y la puesta a punto de la suspensión. Esta política explica exactamente qué datos maneja, dónde viven y cómo borrarlos.</p>
+
+  <div class="note">
+    <strong>Lo esencial, en tres frases.</strong> MTBrain funciona sin cuenta y sin conexión: por defecto tus datos no salen del teléfono. Si creas una cuenta, se copian a un servidor para que sobrevivan a un cambio de móvil. No hay publicidad, ni analítica, ni rastreadores de ningún tipo.
+  </div>
+
+  <nav class="toc" aria-label="Índice">
+    <h2>Contenido</h2>
+    <ol>
+      <li><a href="#responsable">Quién responde</a></li>
+      <li><a href="#modos">Dos modos de uso</a></li>
+      <li><a href="#datos">Qué datos maneja</a></li>
+      <li><a href="#salud">Datos de salud y deporte</a></li>
+      <li><a href="#strava">Conexión con Strava</a></li>
+      <li><a href="#ia">Consejo con IA</a></li>
+      <li><a href="#mapas">Mapas</a></li>
+      <li><a href="#nohay">Lo que MTBrain no hace</a></li>
+      <li><a href="#retencion">Retención y borrado</a></li>
+      <li><a href="#seguridad">Seguridad</a></li>
+      <li><a href="#derechos">Tus derechos</a></li>
+      <li><a href="#ninos">Edad mínima</a></li>
+      <li><a href="#cambios">Cambios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ol>
+  </nav>
+
+  <section class="s" id="responsable">
+    <h2 class="sec"><span class="num">01</span> Quién responde</h2>
+    <p>MTBrain está desarrollada y publicada por <strong>Rookie Works</strong>, un estudio de software independiente con sede en Venezuela, responsable del tratamiento de los datos descritos aquí.</p>
+    <p>Contacto para cualquier asunto de privacidad: <a href="mailto:rookieworksdev@gmail.com">rookieworksdev@gmail.com</a>.</p>
+    <p>Esta política sustituye a la <a href="privacy.html">política general de Rookie Works</a> en todo lo relativo a MTBrain. Donde ambas digan cosas distintas, manda esta.</p>
+  </section>
+
+  <section class="s" id="modos">
+    <h2 class="sec"><span class="num">02</span> Dos modos de uso</h2>
+    <h3>Sin cuenta (por defecto)</h3>
+    <p>Al instalar la app no se te pide registro. Todo lo que introduces —tus bicicletas, componentes, mantenimientos y setups— se guarda <strong>únicamente en el almacenamiento local de tu teléfono</strong>. No se envía a ningún servidor nuestro y no tenemos forma de verlo. Si desinstalas la app, esos datos desaparecen contigo.</p>
+    <h3>Con cuenta (opcional)</h3>
+    <p>Puedes crear una cuenta con tu correo y una contraseña. A partir de ese momento los mismos datos se guardan también en nuestro servidor, para que sobrevivan a un formateo o a un cambio de teléfono. Crear la cuenta copia hacia el servidor lo que ya tenías guardado localmente.</p>
+    <p>La cuenta es opcional en todo momento: la app es plenamente funcional sin ella.</p>
+  </section>
+
+  <section class="s" id="datos">
+    <h2 class="sec"><span class="num">03</span> Qué datos maneja</h2>
+    <div class="scroller">
+      <table>
+        <thead>
+          <tr><th>Dato</th><th>De dónde sale</th><th>Dónde vive</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Correo electrónico</td><td>Tú, al registrarte</td><td>Servidor (solo con cuenta)</td></tr>
+          <tr><td>Contraseña</td><td>Tú, al registrarte</td><td>Servidor, cifrada. Nunca la vemos</td></tr>
+          <tr><td>Nombre a mostrar, edad, peso, altura</td><td>Tú, en el perfil</td><td>Teléfono · Servidor si hay cuenta</td></tr>
+          <tr><td>Estilo y nivel de conducción</td><td>Tú, en el perfil</td><td>Teléfono · Servidor si hay cuenta</td></tr>
+          <tr><td>Bicicletas, componentes, mantenimientos, setups</td><td>Tú, o importados de Strava</td><td>Teléfono · Servidor si hay cuenta</td></tr>
+          <tr><td>Fotos de tus bicicletas</td><td>Tú, desde la galería</td><td>Solo en el teléfono</td></tr>
+          <tr><td>Actividades y rutas</td><td>Strava, si lo conectas</td><td>Teléfono · Servidor si hay cuenta</td></tr>
+          <tr><td>Credenciales de Strava (tokens)</td><td>Strava, al autorizar</td><td>Teléfono, o servidor si hay cuenta</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Nada de esto se vende, se alquila ni se comparte con anunciantes o intermediarios de datos. No existe ese circuito en la app.</p>
+    <h3>Infraestructura</h3>
+    <p>Cuando hay cuenta, los datos se alojan en <strong>Supabase</strong>, que opera sobre infraestructura de Amazon Web Services. Supabase actúa como encargado del tratamiento por nuestra cuenta y los servidores pueden estar fuera de tu país. El acceso está restringido por reglas a nivel de fila: tu cuenta solo puede leer y escribir sus propias filas.</p>
+  </section>
+
+  <section class="s" id="salud">
+    <h2 class="sec"><span class="num">04</span> Datos de salud y deporte</h2>
+    <p>Conviene decirlo sin rodeos, porque Google Play lo clasifica así y porque es cierto: <strong>MTBrain maneja datos de salud y forma física</strong>. En concreto tu peso, tu altura, tu edad y —si conectas Strava— tus actividades deportivas con sus rutas, distancias, tiempos y desniveles.</p>
+    <p>Se usan para una sola cosa: calcular la puesta a punto de tu bicicleta y llevar el desgaste de sus componentes. El peso determina la presión de horquilla y amortiguador; la distancia recorrida determina cuándo toca cambiar la cadena. No se usan para perfilarte, ni para publicidad, ni se cruzan con ninguna otra fuente.</p>
+    <div class="note">
+      MTBrain <strong>no</strong> accede al GPS de tu teléfono ni graba rutas por su cuenta. La app declara un único permiso de Android: acceso a internet. Las rutas que ves son las que ya grabaste en Strava, y llegan a través de Strava.
+    </div>
+  </section>
+
+  <section class="s" id="strava">
+    <h2 class="sec"><span class="num">05</span> Conexión con Strava</h2>
+    <p>Conectar Strava es opcional. Si lo haces, la autorización ocurre en el navegador, en la propia página de Strava: <strong>MTBrain nunca ve tu usuario ni tu contraseña de Strava</strong>. Lo que recibimos es un token de acceso que puedes revocar cuando quieras.</p>
+    <h3>Qué leemos de Strava</h3>
+    <ul>
+      <li>Tus actividades: fecha, distancia, tiempo, desnivel, y la ruta si la grabaste.</li>
+      <li>Tu equipamiento (bicicletas): nombre, marca, modelo y kilómetros acumulados.</li>
+      <li>Tu identificador numérico de atleta, para saber de quién son esas actividades.</li>
+    </ul>
+    <h3>Qué deliberadamente no leemos</h3>
+    <p>No leemos tu nombre, tu foto de perfil, tu peso ni ningún otro dato personal de tu cuenta de Strava, aunque el permiso técnicamente lo permitiría. Tu nombre y tu peso los escribes tú en MTBrain. Es una decisión de diseño: cuanto menos dato personal de terceros exista dentro de la app, menos hay que proteger.</p>
+    <h3>Qué no le mandamos a Strava</h3>
+    <p>La comunicación es de una sola dirección. MTBrain no publica actividades, ni comentarios, ni modifica nada en tu cuenta de Strava.</p>
+    <h3>Cómo desconectarlo</h3>
+    <p>Desde <em>Perfil → Desconectar Strava</em> dentro de la app. Al hacerlo revocamos el acceso ante Strava y borramos las credenciales y las actividades descargadas. Tus bicicletas y tu historial de mantenimiento se quedan: son tuyos, no de Strava. También puedes revocarlo desde <a href="https://www.strava.com/settings/apps" rel="noopener">los ajustes de tu cuenta de Strava</a>.</p>
+    <p>Strava es un servicio independiente con sus propias condiciones. Lo que ocurre dentro de Strava se rige por <a href="https://www.strava.com/legal/privacy" rel="noopener">su política de privacidad</a>.</p>
+  </section>
+
+  <section class="s" id="ia">
+    <h2 class="sec"><span class="num">06</span> Consejo con IA</h2>
+    <p>MTBrain puede acompañar el setup calculado con una explicación en lenguaje natural generada por un modelo de lenguaje externo. Esta función:</p>
+    <ul>
+      <li>Está <strong>desactivada por defecto</strong> y solo se activa si tú la enciendes en el perfil.</li>
+      <li>Envía únicamente datos técnicos de la bicicleta y del setup: recorrido de suspensión, presiones, clics de ajuste, disciplina y tipo de terreno.</li>
+      <li><strong>No envía tu peso, tu altura, tu edad, tu nombre, tu correo ni tus rutas.</strong></li>
+    </ul>
+    <p>Si está apagada —o si no hay servicio de IA configurado en la versión que tienes instalada, que es el caso de las compilaciones publicadas— la app genera la explicación localmente y no sale ningún dato del teléfono por este concepto.</p>
+  </section>
+
+  <section class="s" id="mapas">
+    <h2 class="sec"><span class="num">07</span> Mapas</h2>
+    <p>Las rutas se dibujan sobre mapas de <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>. Al mostrar un mapa, tu dispositivo solicita las imágenes a los servidores de OpenStreetMap, que como cualquier servidor web registran la petición. Ese tratamiento se rige por la <a href="https://osmfoundation.org/wiki/Privacy_Policy" rel="noopener">política de la OpenStreetMap Foundation</a>. No les enviamos ningún dato tuyo.</p>
+  </section>
+
+  <section class="s" id="nohay">
+    <h2 class="sec"><span class="num">08</span> Lo que MTBrain no hace</h2>
+    <p>Es tan informativo como la lista de lo que sí hace:</p>
+    <ul>
+      <li><strong>No hay publicidad.</strong> Ninguna red publicitaria, ni AdMob, ni identificador de publicidad.</li>
+      <li><strong>No hay analítica.</strong> No medimos qué pantallas abres ni cuánto tiempo pasas en ellas.</li>
+      <li><strong>No hay rastreadores</strong> ni SDK de terceros dedicados a seguimiento.</li>
+      <li><strong>No vendemos ni compartimos datos personales</strong> en el sentido del GDPR o de la CCPA.</li>
+      <li><strong>No accedemos a tu ubicación, contactos, micrófono ni cámara.</strong> El único permiso que declara la app es el de internet.</li>
+    </ul>
+  </section>
+
+  <section class="s" id="retencion">
+    <h2 class="sec"><span class="num">09</span> Retención y borrado</h2>
+    <p>Sin cuenta, los datos viven en tu teléfono mientras la app esté instalada. Desinstalarla los elimina.</p>
+    <p>Con cuenta, los datos se conservan mientras la cuenta exista. Puedes borrarla de dos formas:</p>
+    <ul>
+      <li>Desde la app: <em>Perfil → Eliminar mi cuenta</em>.</li>
+      <li>Desde la web, aunque ya hayas desinstalado la app: <a href="mtbrain-eliminar-cuenta.html">página de eliminación de cuenta</a>.</li>
+    </ul>
+    <p>El borrado es inmediato y definitivo: se elimina el usuario y, en cascada, su perfil, bicicletas, componentes, mantenimientos, setups y actividades guardadas. No queda copia recuperable. Las copias de seguridad rutinarias de la infraestructura pueden retener datos residuales un máximo de 30 días antes de rotarse.</p>
+  </section>
+
+  <section class="s" id="seguridad">
+    <h2 class="sec"><span class="num">10</span> Seguridad</h2>
+    <ul>
+      <li>Todo el tráfico viaja cifrado por HTTPS.</li>
+      <li>Las contraseñas se almacenan con funciones de derivación de clave estándar. No las vemos ni podemos recuperarlas; solo restablecerlas.</li>
+      <li>Cada fila de la base de datos está protegida por reglas de acceso que la atan a su dueño. Una cuenta no puede leer los datos de otra ni por error ni a propósito.</li>
+      <li>Las credenciales de Strava se guardan asociadas a tu cuenta y bajo esas mismas reglas.</li>
+    </ul>
+    <p>Ningún sistema es infalible. Si ocurriera una brecha que afecte a tus datos, te lo notificaríamos por correo y a través de esta página.</p>
+  </section>
+
+  <section class="s" id="derechos">
+    <h2 class="sec"><span class="num">11</span> Tus derechos</h2>
+    <p>Según dónde vivas, la ley te reconoce derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad (GDPR en la UE, CCPA/CPRA en California, derechos ARCO en Latinoamérica, entre otros).</p>
+    <p>En la práctica, la app ya te da la mayoría sin pedirle permiso a nadie:</p>
+    <ul>
+      <li><strong>Acceso y portabilidad:</strong> <em>Perfil → Copia de seguridad</em> exporta todo tu garaje a un archivo legible.</li>
+      <li><strong>Rectificación:</strong> cualquier dato es editable desde la propia app.</li>
+      <li><strong>Supresión:</strong> <em>Perfil → Eliminar mi cuenta</em>, o la página web enlazada arriba.</li>
+    </ul>
+    <p>Para cualquier otra solicitud, escríbenos a <a href="mailto:rookieworksdev@gmail.com">rookieworksdev@gmail.com</a>. Respondemos en un plazo máximo de 30 días.</p>
+  </section>
+
+  <section class="s" id="ninos">
+    <h2 class="sec"><span class="num">12</span> Edad mínima</h2>
+    <p>MTBrain no está dirigida a menores de 13 años y no recopilamos datos de forma consciente de ellos. Si crees que un menor nos ha facilitado datos, escríbenos y los eliminaremos.</p>
+  </section>
+
+  <section class="s" id="cambios">
+    <h2 class="sec"><span class="num">13</span> Cambios</h2>
+    <p>Podemos actualizar esta política si cambian las funciones de la app o la ley aplicable. La versión vigente estará siempre en esta dirección, con su fecha de actualización. Si un cambio afecta de forma significativa a cómo tratamos tus datos, lo avisaremos dentro de la app.</p>
+  </section>
+
+  <section class="s" id="contacto">
+    <h2 class="sec"><span class="num">14</span> Contacto</h2>
+    <p>Para dudas, solicitudes o para ejercer tus derechos:</p>
+    <div class="contact-box">
+      <p style="margin:0 0 6px"><strong>Rookie Works</strong> — Venezuela</p>
+      <p style="margin:0"><a href="mailto:rookieworksdev@gmail.com">rookieworksdev@gmail.com</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year">2026</span> Rookie Works</span>
+    <a href="index.html">← Volver al inicio</a>
+    <a href="mtbrain-eliminar-cuenta.html">Eliminar mi cuenta →</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var moon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>';
+  var sun='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>';
+  function ct(){var t=root.getAttribute('data-theme');return t?t:(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}
+  function paint(){document.getElementById('theme').innerHTML=ct()==='dark'?sun:moon;}
+  var s=localStorage.getItem('rw-theme'); if(s) root.setAttribute('data-theme',s); paint();
+  document.getElementById('theme').addEventListener('click',function(){var n=ct()==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('rw-theme',n);paint();});
+  document.getElementById('year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
