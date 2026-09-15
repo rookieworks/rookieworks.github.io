@@ -28,6 +28,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rookieworks.github.io/privacy.html"/>
   </url>
   <url>
+    <loc>https://rookieworks.github.io/logit-privacidad.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rookieworks.github.io/logit-privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rookieworks.github.io/logit-privacy-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rookieworks.github.io/logit-privacidad.html"/>
+  </url>
+  <url>
+    <loc>https://rookieworks.github.io/logit-privacy-en.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rookieworks.github.io/logit-privacy-en.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rookieworks.github.io/logit-privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rookieworks.github.io/logit-privacidad.html"/>
+  </url>
+  <url>
     <loc>https://rookieworks.github.io/mtbrain-privacidad.html</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>yearly</changefreq>

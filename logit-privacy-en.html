@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log-it Privacy Policy — Rookie Works</title>
+<meta name="description" content="What data Log-it stores, why it never leaves your phone, what the camera does, and how advertising works.">
+<link rel="canonical" href="https://rookieworks.github.io/logit-privacy-en.html">
+<link rel="alternate" hreflang="en" href="https://rookieworks.github.io/logit-privacy-en.html">
+<link rel="alternate" hreflang="es" href="https://rookieworks.github.io/logit-privacidad.html">
+<link rel="alternate" hreflang="x-default" href="https://rookieworks.github.io/logit-privacidad.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Rookie Works">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Log-it Privacy Policy">
+<meta property="og:description" content="What data Log-it stores, why it never leaves your phone, what the camera does, and how advertising works.">
+<meta property="og:url" content="https://rookieworks.github.io/logit-privacy-en.html">
+<meta property="og:image" content="https://rookieworks.github.io/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rookieworks.github.io/og.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#F5F3EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0E0C" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F3EE; --bg-soft:#EEEBE3; --ink:#151310; --ink-soft:#6B655B;
+    --line:#DCD8CE; --accent:#CF6F22; --accent-ink:#F5F3EE;
+    --serif:"Fraunces",Georgia,serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --pad:clamp(20px,5vw,48px);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#0E0E0C; --bg-soft:#161513; --ink:#EDE9E1; --ink-soft:#9A948A; --line:#2A2823; --accent:#E8833A; --accent-ink:#0E0E0C; }
+  }
+  :root[data-theme="light"]{ --bg:#F5F3EE; --bg-soft:#EEEBE3; --ink:#151310; --ink-soft:#6B655B; --line:#DCD8CE; --accent:#CF6F22; --accent-ink:#F5F3EE; }
+  :root[data-theme="dark"]{ --bg:#0E0E0C; --bg-soft:#161513; --ink:#EDE9E1; --ink-soft:#9A948A; --line:#2A2823; --accent:#E8833A; --accent-ink:#0E0E0C; }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.7;
+    -webkit-font-smoothing:antialiased}
+  ::selection{background:var(--accent);color:var(--accent-ink)}
+  a{color:var(--accent)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:760px;margin:0 auto;padding:0 var(--pad)}
+
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;
+    background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px)}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
+  .mark{font-family:var(--serif);font-size:20px;font-weight:600;text-decoration:none;color:var(--ink);display:inline-flex;align-items:center}
+  .mark .dot{width:8px;height:8px;background:var(--accent);border-radius:2px;margin-left:6px}
+  .tools{display:flex;gap:6px}
+  .iconbtn{font-family:var(--mono);font-size:12px;background:transparent;color:var(--ink);border:1px solid var(--line);
+    border-radius:6px;padding:7px 9px;cursor:pointer;line-height:1;text-decoration:none;display:inline-flex;align-items:center}
+  .iconbtn:hover{border-color:var(--accent)}
+  .iconbtn svg{width:15px;height:15px;display:block}
+
+  .doc{padding:clamp(40px,7vh,72px) 0 80px}
+  .kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.03em;color:var(--accent);margin:0 0 16px}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 14px;text-wrap:balance}
+  .updated{font-family:var(--mono);font-size:13px;color:var(--ink-soft);margin:0 0 8px}
+  .lead{font-size:18px;color:var(--ink-soft);margin:22px 0 0}
+
+  .toc{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:22px 26px;margin:44px 0}
+  .toc h2{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin:0 0 14px;font-weight:500}
+  .toc ol{margin:0;padding:0;list-style:none;counter-reset:t;
+    columns:2;column-gap:34px}
+  .toc li{counter-increment:t;margin:0 0 9px;break-inside:avoid;font-size:15px}
+  .toc li::before{content:counter(t,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--accent);margin-right:10px}
+  .toc a{color:var(--ink);text-decoration:none}
+  .toc a:hover{color:var(--accent)}
+  @media(max-width:560px){.toc ol{columns:1}}
+
+  section.s{padding-top:14px;margin-top:34px;border-top:1px solid var(--line)}
+  h2.sec{font-family:var(--serif);font-weight:600;font-size:clamp(22px,3.4vw,29px);letter-spacing:-.01em;margin:0 0 16px;scroll-margin-top:80px;display:flex;gap:14px;align-items:baseline}
+  h2.sec .num{font-family:var(--mono);font-size:14px;color:var(--accent);font-weight:400}
+  h3{font-family:var(--sans);font-weight:500;font-size:18px;margin:26px 0 8px}
+  p{margin:0 0 16px}
+  ul{margin:0 0 16px;padding-left:22px}
+  li{margin:0 0 9px}
+  strong{font-weight:500;color:var(--ink)}
+  .note{background:var(--bg-soft);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 18px;margin:20px 0;font-size:15.5px;color:var(--ink-soft)}
+  .contact-box{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:22px 26px;margin-top:8px}
+  .contact-box a{font-family:var(--mono)}
+
+  table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:15.5px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);font-weight:500}
+  .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  footer{border-top:1px solid var(--line);padding:30px 0 50px}
+  .foot{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;font-family:var(--mono);font-size:12.5px;color:var(--ink-soft)}
+  .foot a{color:var(--ink-soft);text-decoration:none}
+  .foot a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="index.html">Rookie Works<span class="dot" aria-hidden="true"></span></a>
+    <div class="tools">
+      <a class="iconbtn" href="logit-privacidad.html" aria-label="Leer en español">ES</a>
+      <button class="iconbtn" id="theme" aria-label="Toggle theme"></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap doc">
+  <p class="kicker">// Log-it · legal document</p>
+  <h1>Log-it Privacy Policy</h1>
+  <p class="updated">Last updated: September 15, 2026 · Version 1.0</p>
+  <p class="lead">Log-it is an app for keeping the maintenance record of your vehicles and equipment. This policy explains what data it handles, where it lives, and what does — and does not — leave your phone.</p>
+
+  <div class="note">
+    <strong>The short version, in three sentences.</strong> Log-it works with no account and offline: what you record is stored only on your phone and we have no way to see it. The only thing that leaves the device is advertising, handled by Google AdMob. The backup file is created by you and travels only if you choose to share it.
+  </div>
+
+  <nav class="toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#who">Who is responsible</a></li>
+      <li><a href="#where">Where your data lives</a></li>
+      <li><a href="#data">What data it handles</a></li>
+      <li><a href="#backup">Backup and export</a></li>
+      <li><a href="#camera">Camera, photos and scanning</a></li>
+      <li><a href="#ads">Advertising (AdMob)</a></li>
+      <li><a href="#reminders">Reminders</a></li>
+      <li><a href="#permissions">Permissions the app declares</a></li>
+      <li><a href="#nothing">What Log-it does not do</a></li>
+      <li><a href="#retention">Retention and deletion</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#rights">Your rights</a></li>
+      <li><a href="#children">Minimum age</a></li>
+      <li><a href="#changes">Changes</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <section class="s" id="who">
+    <h2 class="sec"><span class="num">01</span> Who is responsible</h2>
+    <p>Log-it (package identifier <code>com.rookieworks.logit</code>) is developed and published by <strong>Rookie Works</strong>, an independent software studio based in Venezuela, and the controller of the data described here.</p>
+    <p>Contact for any privacy matter: <a href="mailto:rookieworksdev@gmail.com">rookieworksdev@gmail.com</a>.</p>
+    <p>This policy supersedes the <a href="privacy-en.html">general Rookie Works privacy policy</a> in everything concerning Log-it. Where the two differ, this one prevails.</p>
+  </section>
+
+  <section class="s" id="where">
+    <h2 class="sec"><span class="num">02</span> Where your data lives</h2>
+    <p>There is no sign-up, no login and <strong>no server of ours</strong>. Everything you enter is stored in the app's private storage on your phone. It is not sent to Rookie Works or to third parties, and we have no technical means of reading it.</p>
+    <p>The app works fully offline. It only uses the network to load ads.</p>
+  </section>
+
+  <section class="s" id="data">
+    <h2 class="sec"><span class="num">03</span> What data it handles</h2>
+    <div class="scroller">
+      <table>
+        <thead>
+          <tr><th>Data</th><th>Where it comes from</th><th>Where it lives</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Equipment and vehicles: name, brand, model, year, serial or plate, notes</td><td>You, when you add them</td><td>Your phone only</td></tr>
+          <tr><td>Service records, tasks, parts and costs</td><td>You, when you log them</td><td>Your phone only</td></tr>
+          <tr><td>Odometer or hour-meter readings</td><td>You, by hand or with the camera</td><td>Your phone only</td></tr>
+          <tr><td>Photos of equipment and of work done</td><td>You, via camera or gallery</td><td>Your phone only</td></tr>
+          <tr><td>Preferences: language and reminder settings</td><td>You, in Settings</td><td>Your phone only</td></tr>
+          <tr><td>Advertising identifier and device data</td><td>Google AdMob</td><td>Google, under its own policy</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Nothing you record is sold, rented or shared with advertisers or data brokers. That circuit does not exist in the app: your records never reach us.</p>
+  </section>
+
+  <section class="s" id="backup">
+    <h2 class="sec"><span class="num">04</span> Backup and export</h2>
+    <p>From <em>Settings → Export everything</em> the app creates a <code>.zip</code> file with your records and photos. It is created on your phone and <strong>is not uploaded anywhere</strong>.</p>
+    <p>If you choose to share it — by email, to cloud storage or to another phone — it travels to the destination you pick and is then subject to that service's terms. That choice is yours; the app does not make it for you and never sends anything automatically.</p>
+    <p>That same file is your right to portability in practice: it is readable, contains your full history, and can be restored on another device.</p>
+  </section>
+
+  <section class="s" id="camera">
+    <h2 class="sec"><span class="num">05</span> Camera, photos and scanning</h2>
+    <p>The camera is used for three things, and they are worth telling apart because they do not all work the same way:</p>
+    <h3>Photos</h3>
+    <p>Photos you take or pick from the gallery are copied into the app's storage. They are not uploaded to any server.</p>
+    <h3>Odometer reading</h3>
+    <p>The text recognition that reads the dashboard runs <strong>entirely on your device</strong>, using a component shipped inside the app. The image never leaves your phone and is not kept unless you attach it to the record.</p>
+    <h3>QR codes and barcodes</h3>
+    <p>Scanning is also processed on the device, but the component that performs it may be provided by <strong>Google Play services</strong> on your phone, which in some cases downloads it on demand. What gets downloaded is that component: your images and data are not sent.</p>
+  </section>
+
+  <section class="s" id="ads">
+    <h2 class="sec"><span class="num">06</span> Advertising (Google AdMob)</h2>
+    <p>Log-it is free and supported by ads served by <strong>Google AdMob</strong>. To serve and measure ads, Google and its advertising partners may collect and process the device advertising identifier, approximate location derived from the IP address (country or region, not GPS), device information and ad interaction data.</p>
+    <p>Google carries out that processing as its own controller, under its policies:</p>
+    <ul>
+      <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+      <li><a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites or apps that use its services</a></li>
+    </ul>
+    <p>Depending on your region, ads may be <strong>personalised</strong> or <strong>non-personalised</strong>. Where the law requires it (European Economic Area, United Kingdom and Switzerland), a Google consent form is shown <strong>before</strong> any ad is loaded. You can change or withdraw your choice from <em>Settings → Privacy options</em> inside the app, where that option is available.</p>
+    <p>On Android you can also reset or delete your advertising identifier, or turn off personalisation, in <strong>Settings › Google › Ads</strong>.</p>
+    <div class="note">
+      The app includes a voluntary button to watch an ad in support of the project. It is optional and <strong>unlocks nothing</strong>: everything Log-it does is available without watching it. There are also no ads in front of exporting your own data.
+    </div>
+  </section>
+
+  <section class="s" id="reminders">
+    <h2 class="sec"><span class="num">07</span> Reminders</h2>
+    <p>Reminders for due maintenance are scheduled on the phone itself. <strong>They are not push notifications</strong>: no server sends them, they need no connection, and their content never leaves the device.</p>
+  </section>
+
+  <section class="s" id="permissions">
+    <h2 class="sec"><span class="num">08</span> Permissions the app declares</h2>
+    <ul>
+      <li><strong>Camera:</strong> photograph equipment and work done, read the odometer, scan codes.</li>
+      <li><strong>Notifications:</strong> remind you of due maintenance. Requested when you turn reminders on, not when you open the app.</li>
+      <li><strong>Boot completed, vibrate, wake lock and foreground service:</strong> used by the notification component to show reminders and reschedule them after the phone restarts; without them they would be lost silently.</li>
+      <li><strong>Internet and network state:</strong> load ads and the consent form.</li>
+      <li><strong>Advertising ID:</strong> required by Google for advertising.</li>
+    </ul>
+    <p>The app declares <strong>no</strong> location, contacts, microphone, calendar or external storage permissions.</p>
+  </section>
+
+  <section class="s" id="nothing">
+    <h2 class="sec"><span class="num">09</span> What Log-it does not do</h2>
+    <ul>
+      <li><strong>No analytics.</strong> We do not measure which screens you open or how long you spend in them.</li>
+      <li><strong>No account or login.</strong> We do not ask for your email or your name.</li>
+      <li><strong>No automatic sync.</strong> Nothing is uploaded to the cloud on its own.</li>
+      <li><strong>No access to your location, contacts, microphone or calendar.</strong></li>
+      <li><strong>We do not sell or share your records</strong> within the meaning of the GDPR or the CCPA: we do not have them.</li>
+    </ul>
+  </section>
+
+  <section class="s" id="retention">
+    <h2 class="sec"><span class="num">10</span> Retention and deletion</h2>
+    <p>Your data lives on your phone for as long as the app is installed. <strong>Uninstalling it deletes everything</strong>, including photos taken through it. As there is no server, no copy remains anywhere else and there is nothing to request from us.</p>
+    <p>Backup files you shared yourself are yours: delete them wherever you saved them.</p>
+    <p>As for advertising, Google retains and processes its own data under the retention periods in its policy, linked above.</p>
+  </section>
+
+  <section class="s" id="security">
+    <h2 class="sec"><span class="num">11</span> Security</h2>
+    <ul>
+      <li>Data is kept in the app's private storage, which other apps on the phone cannot access.</li>
+      <li>Advertising and consent traffic travels encrypted over HTTPS.</li>
+      <li>We run no servers holding your data, so there is no database of ours that could suffer a breach.</li>
+    </ul>
+    <p>The honest trade-off of this design: if you lose your phone without having exported a backup, we cannot recover your history. That is why export has been there since day one.</p>
+  </section>
+
+  <section class="s" id="rights">
+    <h2 class="sec"><span class="num">12</span> Your rights</h2>
+    <p>Depending on where you live, the law grants you rights of access, rectification, erasure, objection, restriction and portability (GDPR in the EU and the UK, CCPA/CPRA in California, ARCO rights in Latin America, among others).</p>
+    <p>For what you record in the app, you exercise those rights directly, without asking anyone:</p>
+    <ul>
+      <li><strong>Access and portability:</strong> <em>Settings → Export everything</em>.</li>
+      <li><strong>Rectification:</strong> every field is editable inside the app.</li>
+      <li><strong>Erasure:</strong> delete the record in the app, or uninstall it to remove everything.</li>
+    </ul>
+    <p>For advertising data the controller is Google, and you may exercise your rights with them, as well as reset or limit your advertising identifier as described above. For any other request, write to <a href="mailto:rookieworksdev@gmail.com">rookieworksdev@gmail.com</a>. We reply within 30 days at most.</p>
+  </section>
+
+  <section class="s" id="children">
+    <h2 class="sec"><span class="num">13</span> Minimum age</h2>
+    <p>Log-it is meant for adults managing their vehicles and equipment and is <strong>not directed to children</strong>. We do not knowingly collect data from minors.</p>
+    <p>Ads are configured to receive no child- or teen-directed treatment, and ad content is limited to the general-audience rating. If you are a parent or guardian and believe a minor has given us data, write to us and we will delete it.</p>
+  </section>
+
+  <section class="s" id="changes">
+    <h2 class="sec"><span class="num">14</span> Changes</h2>
+    <p>We may update this policy if the app's features or the applicable law change. The current version will always be at this address, with its update date. If a change significantly affects how your data is handled, we will say so inside the app.</p>
+  </section>
+
+  <section class="s" id="contact">
+    <h2 class="sec"><span class="num">15</span> Contact</h2>
+    <p>For questions, requests, or to exercise your rights:</p>
+    <div class="contact-box">
+      <p style="margin:0 0 6px"><strong>Rookie Works</strong> — Venezuela</p>
+      <p style="margin:0"><a href="mailto:rookieworksdev@gmail.com">rookieworksdev@gmail.com</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year">2026</span> Rookie Works</span>
+    <a href="index.html">← Back to home</a>
+    <a href="logit-privacidad.html">Leer en español →</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var moon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>';
+  var sun='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>';
+  function ct(){var t=root.getAttribute('data-theme');return t?t:(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}
+  function paint(){document.getElementById('theme').innerHTML=ct()==='dark'?sun:moon;}
+  var s=localStorage.getItem('rw-theme'); if(s) root.setAttribute('data-theme',s); paint();
+  document.getElementById('theme').addEventListener('click',function(){var n=ct()==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('rw-theme',n);paint();});
+  document.getElementById('year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
