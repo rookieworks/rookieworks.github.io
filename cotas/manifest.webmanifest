@@ -1,0 +1,20 @@
+{
+  "name": "Cotas — planos con la cámara",
+  "short_name": "Cotas",
+  "description": "Escanea una habitación con la cámara, obtén el plano 2D y 3D con todas las cotas y exporta a PDF, DXF y 3D.",
+  "id": "/cotas/",
+  "start_url": "/cotas/",
+  "scope": "/cotas/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0E0E0C",
+  "theme_color": "#0E0E0C",
+  "lang": "es",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

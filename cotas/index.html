@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<title>Cotas — planos con la cámara</title>
+<meta name="description" content="Escanea una habitación con la cámara del móvil, obtén el plano 2D y 3D con todas las cotas, introduce tus medidas reales y exporta a PDF, DXF y 3D.">
+<meta name="theme-color" content="#0E0E0C" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F6F4EF" media="(prefers-color-scheme: light)">
+<meta name="robots" content="noindex">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="app.css">
+<script type="importmap">{ "imports": { "three": "./vendor/three/three.module.min.js", "three/addons/": "./vendor/three/addons/" } }</script>
+<script>try{var t=localStorage.getItem('cotas.theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module" src="js/main.js"></script>
+</head>
+<body>
+<div id="app">
+
+  <!-- ============ INICIO ============ -->
+  <section id="v-home" class="view">
+    <header class="bar">
+      <div class="brand"><svg viewBox="0 0 32 32" class="logo" aria-hidden="true"><use href="#i-logo"/></svg><span>Cotas</span></div>
+      <div class="grow"></div>
+      <button class="icon-btn" data-act="install" hidden title="Instalar app"><svg><use href="#i-download"/></svg></button>
+      <button class="icon-btn" data-act="settings" title="Ajustes"><svg><use href="#i-settings"/></svg></button>
+    </header>
+    <main class="home scroll">
+      <p class="lead">Escanea un espacio con la cámara, revisa el plano con todas las cotas, escribe tus medidas reales y exporta.</p>
+      <div class="hero-actions">
+        <button class="big primary" data-act="new-scan"><svg><use href="#i-scan"/></svg><span><b>Escanear con cámara</b><small>AR · Esquinas o paredes</small></span></button>
+        <button class="big" data-act="new-manual"><svg><use href="#i-ruler"/></svg><span><b>Plano por medidas</b><small>Rectángulo, L o recorrido</small></span></button>
+      </div>
+      <div id="ar-status" class="note" hidden></div>
+      <div class="section-head"><h2>Proyectos</h2><button class="link" data-act="import">Importar .json</button></div>
+      <div id="project-list" class="project-list"></div>
+      <details class="help">
+        <summary>Cómo conseguir planos fiables</summary>
+        <ol>
+          <li><b>Escanea</b> con buena luz. Primero fija el suelo; después marca las esquinas a ras de suelo. Si un mueble tapa una esquina, usa el modo <b>Paredes</b>: marca dos puntos de cada pared donde se vea y la esquina se calcula sola.</li>
+          <li>La app <b>escuadra</b> automáticamente las esquinas que salen casi a 90°.</li>
+          <li>En la pestaña <b>Cotas</b> escribe lo que midas con cinta o medidor láser. El plano se recalcula para cumplir tus medidas exactas.</li>
+          <li>Si te avisa de que <b>falta una medida</b>, mide la diagonal que te sugiere: con eso la forma queda determinada sin depender del escaneo.</li>
+          <li>Si dos medidas no cuadran, verás el <b>error de cierre</b> en rojo para volver a medir esa pared.</li>
+        </ol>
+      </details>
+      <p class="foot">Hecho por <a href="/">Rookie Works</a>. Tus proyectos se guardan solo en este dispositivo.</p>
+    </main>
+  </section>
+
+  <!-- ============ PROYECTO ============ -->
+  <section id="v-project" class="view" hidden>
+    <header class="bar">
+      <button class="icon-btn" data-act="back" title="Volver"><svg><use href="#i-back"/></svg></button>
+      <input id="proj-name" class="title-input" aria-label="Nombre del proyecto" maxlength="80">
+      <button class="icon-btn" data-act="undo" title="Deshacer"><svg><use href="#i-undo"/></svg></button>
+      <button class="icon-btn" data-act="redo" title="Rehacer"><svg><use href="#i-redo"/></svg></button>
+      <button class="icon-btn" data-act="proj-menu" title="Más"><svg><use href="#i-more"/></svg></button>
+    </header>
+    <div class="tabs-body">
+      <div id="tab-plan" class="tab">
+        <div id="plan-host" class="plan-host"></div>
+        <div class="plan-top">
+          <div class="seg" id="tools">
+            <button data-tool="dims" class="on">Cotas</button>
+            <button data-tool="shape">Forma</button>
+            <button data-tool="openings">Huecos</button>
+            <button data-tool="move">Mover</button>
+          </div>
+        </div>
+        <button class="status-chip" id="plan-status" data-act="goto-dims"></button>
+        <div class="plan-fabs">
+          <button class="icon-btn fab-sm" data-act="zoom-in" title="Acercar"><svg><use href="#i-plus"/></svg></button>
+          <button class="icon-btn fab-sm" data-act="zoom-out" title="Alejar"><svg><use href="#i-minus"/></svg></button>
+          <button class="icon-btn fab-sm" data-act="fit" title="Encuadrar"><svg><use href="#i-fit"/></svg></button>
+          <button class="fab" data-act="add-room" title="Añadir habitación"><svg><use href="#i-plus"/></svg><span>Habitación</span></button>
+        </div>
+        <div class="tool-hint" id="tool-hint"></div>
+      </div>
+      <div id="tab-dims" class="tab scroll" hidden></div>
+      <div id="tab-3d" class="tab" hidden>
+        <div id="v3d-host" class="v3d-host"></div>
+        <div class="v3d-tools">
+          <button data-v3d="persp" class="chip-btn">3D</button>
+          <button data-v3d="top" class="chip-btn">Planta</button>
+          <button data-v3d="low" class="chip-btn" aria-pressed="false">Muros bajos</button>
+          <button data-v3d="ceiling" class="chip-btn" aria-pressed="false">Techo</button>
+          <button data-v3d="shot" class="chip-btn">Captura</button>
+        </div>
+      </div>
+      <div id="tab-export" class="tab scroll" hidden></div>
+    </div>
+    <nav class="tabbar">
+      <button data-tab="plan" class="on"><svg><use href="#i-plan"/></svg><span>Plano</span></button>
+      <button data-tab="dims"><svg><use href="#i-ruler"/></svg><span>Cotas</span></button>
+      <button data-tab="3d"><svg><use href="#i-cube"/></svg><span>3D</span></button>
+      <button data-tab="export"><svg><use href="#i-share"/></svg><span>Exportar</span></button>
+    </nav>
+  </section>
+</div>
+
+<div id="scrim" hidden></div>
+<div id="sheet" class="sheet" hidden role="dialog" aria-modal="true"></div>
+<div id="toast" hidden></div>
+<input type="file" id="file-in" accept=".json,application/json" hidden>
+
+<!-- ============ OVERLAY AR (dom-overlay de WebXR) ============ -->
+<div id="ar-overlay" hidden>
+  <div class="ar-top">
+    <button data-ar="exit" class="ar-x" aria-label="Salir"><svg><use href="#i-close"/></svg></button>
+    <div class="ar-step"></div>
+    <div class="ar-modes seg dark">
+      <button data-ar="mode-corners">Esquinas</button>
+      <button data-ar="mode-lines">Paredes</button>
+    </div>
+  </div>
+  <div class="ar-msg"></div>
+  <div class="ar-cross" data-state="bad"><i></i><b class="ar-live"></b></div>
+  <div class="ar-toast" hidden></div>
+  <div class="ar-dialog" hidden></div>
+  <div class="ar-bottom">
+    <div class="ar-count"></div>
+    <div class="ar-actions"></div>
+    <div class="ar-main">
+      <button data-ar="undo" class="ar-round" aria-label="Deshacer"><svg><use href="#i-undo"/></svg></button>
+      <button data-ar="add" class="ar-add">＋</button>
+      <span class="ar-round ghost"></span>
+    </div>
+  </div>
+</div>
+
+<div id="print-root"></div>
+
+<!-- ============ ICONOS ============ -->
+<svg class="icon-defs" aria-hidden="true">
+  <defs>
+    <symbol id="i-logo" viewBox="0 0 32 32"><rect x="3" y="3" width="26" height="26" rx="7" fill="#E8833A"/><path d="M9 21V11h9v5h5v5z" fill="none" stroke="#0E0E0C" stroke-width="2.2" stroke-linejoin="round"/><path d="M9 25h14M9 24v2M23 24v2" stroke="#0E0E0C" stroke-width="1.6"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></g></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M7 15l5-7 5 7z"/></g></symbol>
+    <symbol id="i-ruler" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 16.5 16.5 3 21 7.5 7.5 21z"/><path d="M7 13l1.5 1.5M10 10l2 2M13 7l1.5 1.5"/></g></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5M4 9h11a5 5 0 0 1 0 10h-3" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-redo" viewBox="0 0 24 24"><path d="m15 14 5-5-5-5M20 9H9a5 5 0 0 0 0 10h3" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></g></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-fit" viewBox="0 0 24 24"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M3 12h7v9M14 3v6h7"/></g></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 2 21 7v10l-9 5-9-5V7z"/><path d="M3 7l9 5 9-5M12 12v10"/></g></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></g></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></g></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3 2 20h20z" stroke-linejoin="round"/><path d="M12 10v4M12 17h0"/></g></symbol>
+  </defs>
+</svg>
+</body>
+</html>

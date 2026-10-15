@@ -21,6 +21,17 @@ Sitio web público de **Rookie Works**, estudio de software independiente. Está
 | `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icon-192/512.png` | Iconos. |
 | `og.png` | Imagen para compartir en redes (Open Graph, 1200×630). |
 | `robots.txt`, `sitemap.xml`, `site.webmanifest` | SEO / PWA básica. |
+| `cotas/` | App «Cotas» (PWA): escaneo AR de habitaciones → planos 2D/3D con cotas. Ver sección abajo. |
+
+## Cotas — app de planos con la cámara (`/cotas/`)
+
+PWA para Android (Chrome + ARCore) que escanea una habitación con la cámara, genera el plano 2D y 3D con todas las cotas y deja escribir las medidas reales para recalcular el plano. **En vivo:** https://rookieworks.github.io/cotas/ (en el móvil: menú de Chrome → «Instalar aplicación»).
+
+- **Escaneo (WebXR `immersive-ar` + hit-test):** se fija el plano del suelo y las esquinas se calculan intersecando el rayo de la cámara con ese plano. Modo *Paredes*: 2+ puntos por pared en zonas libres de muebles; las esquinas tapadas salen de intersecar rectas. Altura, puertas y ventanas se miden contra el plano vertical de cada pared.
+- **Solver de cotas** (`js/solver.js`): mínimos cuadrados (Levenberg–Marquardt). Las medidas escritas y los ángulos fijados son restricciones duras; la forma escaneada es una previa blanda. Informa de grados de libertad pendientes («falta 1 medida») y del error de cierre si las medidas no cuadran.
+- **Exporta:** PDF a escala con cajetín, DXF R12 por capas (mm o m), SVG, PNG, GLB/OBJ, CSV de medidas y JSON.
+- **Sin build:** módulos ES nativos; three.js r169 está copiado en `cotas/vendor/three/` (licencia MIT incluida).
+- **Pruebas:** `node cotas/tests/core.test.mjs` y `node cotas/tests/scan.test.mjs` (geometría, solver y escaneo simulado con muebles). Para probar el flujo AR en el ordenador: `https://rookieworks.github.io/cotas/?sim=1` → Escanear → «Probar en simulador».
 
 ## URLs para Google Play Console
 
